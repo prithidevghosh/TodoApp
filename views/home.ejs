@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+   
+    <script src="https://kit.fontawesome.com/962e5113f8.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="holder">
+        <span>
+            <h1>To Do App</h1>
+        </span>
+
+        <form action="/add-task" method="post">
+            <div class="container">
+
+
+                <div class="insider1">
+                    <h3>Add details</h3>
+                    <input type="text" name="description" required>
+                </div>
+                <div class="insider2">
+                    <h3>Select Category</h3>
+                    <select id="" name="category" required>
+                        <option value="Work">Work</option>
+                        <option value="Study">Study</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Transport">Transport</option>
+                    </select>
+                </div>
+                <div class="insider2">
+                    <h3>Select Deadline</h3>
+                    <input type="date" name="date" required>
+                </div>
+
+                <button id="add_task" type="submit" class="pushable"><span class="front"><i
+                            class="fa-solid fa-square-plus"></i>
+                        &nbsp; Add Task</span></button>&nbsp;
+                <button class="pushable"><span class="front"><a href='/delete-all/'><i
+                                class="fa-solid fa-trash"></i>&nbsp; Delete all</a></span></button>
+        </form>
+
+
+    </div>
+
+
+
+    <!-- <ul>
+   <% for(let i of taskList){ %>
+           
+         <li>
+
+           <div>
+
+            
+
+           </div>
+
+        </li>
+      
+    <% } %>
+   </ul> -->
+    <div id="task_show_head">
+        <div>
+            <h4>Task Description</h4>
+        </div>
+        <div>
+            <h4>Deadline</h4>
+        </div>
+        <div>
+            <h4>Category</h4>
+        </div>
+    </div>
+    <div id="task_show">
+        <% for(let i of taskList){ %>
+
+            <div id="tasks">
+                <form action='/delete-custom/' method="post">
+                    <!-- <label class="label_for_accept" for="accept">
+                        <span><input class="check" type="checkbox" name="accept" value="<%=i.id%>"></span>
+                    </label> -->
+                </form>
+                <div>
+                    <%=i.description%>
+                </div>
+                <div>
+                    <%=i.date%>
+                </div>
+                <div class="<%=console.log(i.category)%>">
+
+                    <%=i.category%>
+                </div>
+                <a href='/delete-contact/?id=<%=i.id%>'>
+                    <i class="fa-solid fa-trash trash"></i>
+                </a>
+            </div>
+
+            <% } %>
+
+    </div>
+    </div>
+
+    <script type="text/javascript" src="/home.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+ 
+</body>
+
+</html>
